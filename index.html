@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    /* width: 100vw; */
+  }
+
+  .con-truck {
+    margin-top: 40px;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .con-truck-1 {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    max-width: 26%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .img {
+    width: 500px;
+  }
+
+  .img-1 {
+    width: 200px;
+  }
+
+  .drill {
+    width: 150px;
+    z-index: 1;
+    margin: 0px;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+  }
+
+  .drill-1 {
+    width: 55px;
+    z-index: 1;
+    margin: 0px;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+  }
+
+  @keyframes example {
+    from {
+      transform: rotateY(0deg);
+    }
+
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
+  .con-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .con-drill {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 385px;
+  }
+
+  .con-drill-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  hr:not([size]) {
+    height: 10px;
+    opacity: 1;
+    width: 168px;
+  }
+
+  #target-1 {
+    position: absolute;
+    right: 26%;
+  }
+
+  #target-2 {
+    position: absolute;
+    left: 15em;
+    top: 17em;
+  }
+
+  @media (max-width: 900px) {
+    body {
+      max-width: 100vw;
+      max-height: 100vh;
+      height: 100vh;
+      /* width: 100vw; */
+    }
+
+    .con-truck {
+      margin-top: 0px;
+      position: absolute;
+      max-width: 26%;
+      right: 37px;
+      bottom: 49px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .con-truck-1 {
+      margin-top: 40px;
+      margin-bottom: 50px;
+      max-width: 26%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .img {
+      width: 160px;
+    }
+
+    .img-1 {
+      width: 130px;
+    }
+
+    .drill {
+      width: 43px;
+      z-index: 1;
+      margin: 0px;
+      animation-name: example;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+    }
+
+    .drill-1 {
+      width: 30px;
+      z-index: 1;
+      margin: 0px;
+      animation-name: example;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+    }
+
+    @keyframes example {
+      from {
+        transform: rotateY(0deg);
+      }
+
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .con-btn {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .con-drill {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 83px;
+    }
+
+    .con-drill-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    hr:not([size]) {
+      height: 5px;
+      opacity: 1;
+      width: 100px;
+    }
+
+    #target-1 {
+      position: absolute;
+      right: 69%;
+      bottom: 37%;
+    }
+
+    #target-2 {
+      position: absolute;
+      left: 41em;
+      top: 14em;
+    }
+  }
+</style>
+
+<body>
+  <div id="countdown"></div>
+  <div class="con-truck" style="display: none" id="con-truck">
+    <img class="img" src="./truck.png" alt="truck" />
+    <div class="con-drill">
+      <img class="img drill" id="drill" src="./drill.png" alt="drill" />
+    </div>
+  </div>
+  <div class="con-truck-1">
+    <img class="img-1" src="./truck.png" alt="truck" />
+    <div class="con-drill-1">
+      <img class="img-1 drill-1" id="drill-1" src="./drill.png" alt="drill" />
+    </div>
+  </div>
+  <div id="target-1">
+    <hr class="bg-success">
+    <hr class="bg-danger">
+  </div>
+  <div id="target-2">
+    <hr class="bg-success">
+    <hr class="bg-danger">
+  </div>
+  <div class="con-btn">
+    <button class="btn btn-primary mx-2" onclick="drill()" id="btn-drill">Drill</button>
+    <button class="btn btn-danger mx-2 disabled" id="blast" onclick="blast()">Blast</button>
+  </div>
+</body>
+<script src="./js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  function drill() {
+    const drill = document.getElementById("drill")
+    const blast = document.getElementById("blast")
+    const btnDrill = document.getElementById("btn-drill")
+    const hr = document.getElementById("target-1")
+    const drill1 = document.getElementById("drill-1")
+    const hr1 = document.getElementById("target-2")
+    const container = document.getElementById('con-truck').style.display
+    const container1 = document.getElementsByClassName('con-truck-1')
+
+    console.log(container)
+    // if (container === "none") {
+    let temp1 = drill1.style.marginTop
+    let margin1 = +temp1.slice(0, temp1.length - 2)
+    // if (margin === 180) {
+    //   alert("Kamu Berhasil")
+    //   $(".con-truck-1").hide()
+    //   $("#con-truck").show()
+    // } else {
+    drill1.style.marginTop = margin1 + 10 + 'px'
+    // }
+
+    // } else {
+    let temp = drill.style.marginTop
+    let margin = +temp.slice(0, temp.length - 2)
+    // if (margin === 260) {
+    //   alert("Kamu Berhasil")
+    // } else {
+    drill.style.marginTop = margin + 10 + 'px'
+    // }
+    // }
+  }
+
+  function blast() {
+    console.log("DUARRR !!!!!")
+  }
+
+  var timeleft = 30;
+  const btnDrill = document.getElementById("btn-drill")
+  var downloadTimer = setInterval(function () {
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = "Finished";
+      // btnDrill.disabled = true;
+    } else {
+      document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+    }
+    timeleft -= 1;
+  }, 1000);
+</script>
+
+</html>
